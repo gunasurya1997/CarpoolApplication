@@ -8,6 +8,7 @@
           id="userName"
           formControlName="userName"
           class="form-control"
+          required
         />
         <div *ngIf="userForm.get('userName')?.invalid && userForm.get('userName')?.hasError('pattern')">
          Username should have only alphabets and have only 16 characters
@@ -19,6 +20,7 @@
           id="email"
           formControlName="email"
           class="form-control"
+          required
         />
         <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.hasError('email')">
         Please enter a valid email address.

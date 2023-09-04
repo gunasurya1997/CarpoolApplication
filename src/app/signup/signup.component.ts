@@ -36,8 +36,7 @@ export class SignupComponent implements OnInit {
 
       // Call the UserService to add a new user
       this.userService.addUser(this.user).subscribe(
-        (res) => {
-          console.log(res);
+        () => {
           // Display a success message and reset the form on successful user addition
           this.userService.openSnackBar('User Added Successfully');
           this.signupForm.reset();

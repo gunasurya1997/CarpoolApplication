@@ -61,7 +61,6 @@ export class AuthGuardService {
         console.error('Error decoding token:', error);
       }
     }
-
     // Return 0 if no user data can be extracted
     return 0;
   }
