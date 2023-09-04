@@ -18,7 +18,6 @@ export class OfferRideComponent {
     this.userService.addOfferRide(offerRide).subscribe(
       (res) => {
         this.userService.notifyOfferedRideAdded();
-        console.log(res);
         this.userService.openSnackBar('Offered Ride Successfully!!!!!!');
       },
       (error) => {

@@ -45,7 +45,6 @@ export class MyRidesComponent implements OnInit {
       if (this.bookedRides.length == 0) {
         this.NoBookedRidesMessage = "No Booked Rides to Display!!!!!!";
       }
-      console.log(res);
     });
   }
 
@@ -56,7 +55,6 @@ export class MyRidesComponent implements OnInit {
       if (this.offeredRides.length == 0) {
         this.NoOfferedRidesMessage = "No Offered Rides to Display!!!!";
       }
-      console.log(res);
     });
   }
 }

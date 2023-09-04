@@ -49,7 +49,6 @@ export class BookRideComponent {
         if (this.matchRides.length === 0) {
           this.noMatchRidesMessage = 'No Rides to Display!!!!';
         }
-        console.log(res);
       },
       (error) => {
         this.userService.openSnackBar(error);
@@ -76,7 +75,6 @@ export class BookRideComponent {
       this.userService.addBookRide(booking).subscribe(
         (res) => {
           this.userService.notifyBookedRideAdded();
-          console.log(res);
           this.userService.openSnackBar('Booked Ride Successfully!!!!!!!!!');
         },
         (error) => {
