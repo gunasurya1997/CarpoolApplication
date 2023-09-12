@@ -26,17 +26,6 @@
         Please enter a valid email address.
         </div>
   
-        <label class="my-2" for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          formControlName="password"
-          class="form-control"
-        />
-        <div *ngIf="userForm.get('password')?.invalid  && userForm.get('password')?.hasError('minlength')">
-          Password must be at least 8 characters long.
-        </div>
-  
         <label class="my-2" for="image-input">Image:</label>
         <input
           type="file"

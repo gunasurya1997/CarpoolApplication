@@ -130,7 +130,7 @@ export class UserService {
 
   // Update user data
   updateUser(userId: number, user: any) {
-    const url = `${this.baseUrl}User/register/${userId}`;
+    const url = `${this.baseUrl}User/update/${userId}`;
     return this.http.put<any>(url, user).pipe(
       map((response: any) => {
         if (response.isSuccess && response.data) {

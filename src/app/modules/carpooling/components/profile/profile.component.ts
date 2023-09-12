@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
     this.userForm = this.fb.group({
       userName: ['', [Validators.pattern(/^[a-zA-Z_-]{3,16}$/)]],
       email: ['', [Validators.email]],
-      password: ['', [Validators.minLength(8)]],
     });
 
     // Disable the form initially

@@ -26,6 +26,7 @@ export class RideFormComponent implements OnInit {
   cityData: City[] = [];
   userId: any;
   user: any;
+  seatsList:Array<number> = [1,2,3]
 
   constructor(
     private fb: FormBuilder,

@@ -177,6 +177,7 @@ input:checked + .slider:before {
   text-align: center;
   cursor: pointer;
   padding-top: 7px;
+  margin-right: 10px;
 }
 
 .seat-button.active {
