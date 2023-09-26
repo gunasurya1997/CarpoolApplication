@@ -197,3 +197,7 @@ input:checked + .slider:before {
   font-weight: 600;
   color: black;
 }
+
+.error-message{
+  color: red;
+}

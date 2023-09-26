@@ -65,10 +65,10 @@ export class UserService {
 
   // Add a new user
   addUser(user: any): Observable<void> {
-    const url = `${this.baseUrl}User/register`;
+    const url = `${this.baseUrl}Authentication/register`;
     return this.http.post<void>(url, user).pipe(
       map((response: any) => {
-        if (response.isSuccess && response.data) {
+        if (response.isSuccess) {
           return response.data;
         } else if (response.httpStatusCode == 400) {
           throw new Error(response.errorMessage);
@@ -91,7 +91,7 @@ export class UserService {
 
   // Login a user
   loginUser(user: any): Observable<any> {
-    const url = `${this.baseUrl}User/login`;
+    const url = `${this.baseUrl}Authentication/login`;
     return this.http
       .post<{ data: any }>(url, user, { responseType: 'json' })
       .pipe(
@@ -147,7 +147,7 @@ export class UserService {
 
   // Add an offered ride
   addOfferRide(ride: any): Observable<any> {
-    const url = `${this.baseUrl}Carpool/offer-ride`;
+    const url = `${this.baseUrl}Carpool/offerARide`;
     return this.http.post<void>(url, ride).pipe(
       map((response: any) => {
         if (response.isSuccess && response.data) {
@@ -167,7 +167,7 @@ export class UserService {
 
   // Get matched rides
   getMatchRides(ride: any): Observable<any> {
-    const url = `${this.baseUrl}Carpool/match-rides`;
+    const url = `${this.baseUrl}Carpool/matchRides`;
     return this.http.post<void>(url, ride).pipe(
       map((response: any) => {
         if (response.isSuccess && response.data) {
@@ -187,7 +187,7 @@ export class UserService {
 
   // Add a booked ride
   addBookRide(booking: Booking): Observable<any> {
-    const url = `${this.baseUrl}Carpool/book-ride`;
+    const url = `${this.baseUrl}Carpool/bookARide`;
     return this.http.post<any>(url, booking).pipe(
       map((response: any) => {
         if (response.isSuccess && response.data) {
@@ -207,7 +207,7 @@ export class UserService {
 
   // Get offered rides by user ID
   getOfferedRides(userId: number): Observable<any> {
-    const url = `${this.baseUrl}Carpool/offered-rides/${userId}`;
+    const url = `${this.baseUrl}Carpool/ridesOffered/${userId}`;
     return this.http.get<any>(url).pipe(
       map((response: any) => {
         if (response.isSuccess && response.data) {
@@ -224,7 +224,7 @@ export class UserService {
 
   // Get booked rides by user ID
   getBookedRides(userId: number): Observable<any> {
-    const url = `${this.baseUrl}Carpool/booked-rides/${userId}`;
+    const url = `${this.baseUrl}Carpool/ridesBooked/${userId}`;
     return this.http.get<any>(url).pipe(
       map((response: any) => {
         if (response.isSuccess && response.data) {

@@ -16,8 +16,8 @@
       <div class="m-2">
         <span class="input-text">From</span>
         <select formControlName="from" class="select-input">
-          <option *ngFor="let city of cityData" [value]="city.cityId">
-            {{ city.cityName }}
+          <option *ngFor="let city of cityData" [value]="city.id" [disabled]="selectedToCity == city.id">
+            {{ city.name }}
           </option>
         </select>
         <div
@@ -28,14 +28,14 @@
           "
           class="error-message"
         >
-          From city is required.
+          *From city is required.
         </div>
       </div>
       <div class="m-2">
         <span class="input-text">To </span>
         <select formControlName="to" class="select-input">
-          <option *ngFor="let city of cityData" [value]="city.cityId">
-            {{ city.cityName }}
+          <option *ngFor="let city of cityData" [value]="city.id" [disabled]="selectedFromCity == city.id">
+            {{ city.name }}
           </option>
         </select>
         <div
@@ -46,7 +46,7 @@
           "
           class="error-message"
         >
-          To city is required.
+        *To city is required.
         </div>
       </div>
       <div class="m-2">
@@ -66,7 +66,7 @@
           "
           class="error-message"
         >
-          Date is required.
+        *Date is required.
         </div>
       </div>
       <div class="button-div mt-2">
@@ -139,7 +139,7 @@
           "
           class="error-message"
         >
-          Please select a time slot.
+        *Please select a time slot.
         </div>
       </div>
       <div class="text-end">
@@ -181,8 +181,8 @@
         >
           <span class="input-text">Stop {{ i + 1 }}</span>
           <select [formControlName]="i" class="select-input">
-            <option *ngFor="let city of cityData" [value]="city.cityId">
-              {{ city.cityName }}
+            <option *ngFor="let city of cityData" [value]="city.id" [disabled]="selectedFromCity == city.id || selectedToCity == city.id || selectedStopCities.includes(city.id)">
+              {{ city.name }}
             </option>
           </select>
           <div
@@ -193,7 +193,7 @@
             "
             class="error-message"
           >
-            Stop is required.
+          *Stop is required.
           </div>
         </div>
         <i class="bi bi-plus" type="button" (click)="addStop()"></i>
@@ -225,7 +225,7 @@
               "
               class="error-message"
             >
-              Please select the number of available seats.
+            *Please select the number of available seats.
             </div>
           </div>
         </label>

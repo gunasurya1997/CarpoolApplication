@@ -26,7 +26,10 @@ export class RideFormComponent implements OnInit {
   cityData: City[] = [];
   userId: any;
   user: any;
-  seatsList:Array<number> = [1,2,3]
+  seatsList: Array<number> = [1, 2, 3];
+  selectedFromCity?: number;
+  selectedToCity?: number;
+  selectedStopCities: number[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -97,9 +100,19 @@ export class RideFormComponent implements OnInit {
 
     // Get the user's ID and user data
     this.userId = this.authService.extractUserData();
-    this.userService.getUserById(this.userId).subscribe((res) => {
-      this.user = res;
+    this.firstForm.get('from')?.valueChanges.subscribe((value) => {
+      this.selectedFromCity = value;
     });
+    
+    this.firstForm.get('to')?.valueChanges.subscribe((value) => {
+      this.selectedToCity = value;
+    });
+    
+    this.secondForm.get('stops')?.valueChanges.subscribe((values) => {
+      this.selectedStopCities = values.map(Number);
+    });
+    
+    
   }
 
   // Submit the form
@@ -111,7 +124,6 @@ export class RideFormComponent implements OnInit {
     const fromValue = parseInt(this.firstForm.get('from')?.value);
     const toValue = parseInt(this.firstForm.get('to')?.value);
 
-    // Create the full form data
     this.fullFormData = {
       departureCityId: fromValue,
       destinationCityId: toValue,
@@ -119,12 +131,10 @@ export class RideFormComponent implements OnInit {
       timeslot: this.firstForm.get('timeslot')?.value,
       stops: this.secondForm.get('stops')?.value.toString(),
       availableSeats: availableSeatsValue,
-      fare: (
-        this.secondForm.get('availableSeats')?.value * this.perSeatPrice
-      ).toString(),
+      fare: this.secondForm.get('availableSeats')?.value * this.perSeatPrice,
       rideStatus: false,
       driverId: this.userId,
-      rideId: rideId,
+      Id: rideId,
     };
 
     if (this.showNextButton) {
@@ -144,5 +154,5 @@ export class RideFormComponent implements OnInit {
       this.firstForm.reset();
       this.secondForm.reset();
     }
-  }
+  }  
 }

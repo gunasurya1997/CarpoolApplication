@@ -4,9 +4,9 @@
             <img routerLink="/carpool/home" class="logo" src="/assets/carpool/logo.png" alt="" />
           </div>
           <div ngbDropdown class="ms-auto">
-            <div class="d-flex justify-content-end align-items-center" ngbDropdownToggle>
+            <div class="d-flex justify-content-end align-items-center" >
               <p class="user-name">{{user?.userName}}</p>
-              <img class="user-image" src={{user?.image}} alt="" />
+              <img class="user-image" ngbDropdownToggle src={{user?.image}} alt="" />
             </div>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <button ngbDropdownItem routerLink="/carpool/profile">Profile</button>

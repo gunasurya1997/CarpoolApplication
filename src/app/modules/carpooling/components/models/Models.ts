@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export class City {
-  cityId: number;
-  cityName: string;
+  id: number;
+  name: string;
 
-  constructor(cityId: number, cityName: string) {
-    this.cityId = cityId;
-    this.cityName = cityName;
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
   }
 }
 export class Booking {
@@ -17,19 +17,19 @@ export class Booking {
   public reservedSeats: number;
   public date: string;
   public timeSlot: string;
-  public fare: string;
-  public bookingId: any;
+  public fare: number;
+  public id: any;
 
-  constructor(data: any, userId: number) {
-    this.rideId = data.rideId;
-    this.passengerId = userId;
-    this.bookingId = uuidv4();
-    this.pickupLocationId = data.departureCityId;
-    this.dropLocationId = data.destinationCityId;
-    this.reservedSeats = data.availableSeats;
+  constructor(rideId: number,data:any) {
+    this.rideId = rideId;
+    this.passengerId = data.userId;
+    this.id = uuidv4();
+    this.pickupLocationId = data.startPoint;
+    this.dropLocationId = data.endPoint;
+    this.reservedSeats = 0;
     this.date = data.date;
     this.timeSlot = data.timeSlot;
-    this.fare = data.fare;
+    this.fare = 0;
   }
 }
 export class Ride {
@@ -47,3 +47,4 @@ export class Ride {
     this.timeSlot = data.timeslot;
   }
 }
+

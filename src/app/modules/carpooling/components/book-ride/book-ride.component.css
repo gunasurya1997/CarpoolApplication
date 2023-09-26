@@ -93,3 +93,21 @@ p {
 .match-card-container {
   display: flex;
 }
+.seat-button {
+  width: 40px;
+  height: 40px;
+  border-style: solid;
+  color: #a1a1a1;
+  border-width: 1px;
+  background-color: white;
+  border-radius: 100px;
+  text-align: center;
+  cursor: pointer;
+  padding: 7px;
+  margin-right: 10px;
+}
+
+.seat-button.active {
+  background-color: #9319ff;
+  color: white;
+}
